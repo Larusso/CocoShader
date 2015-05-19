@@ -1,0 +1,6 @@
+bin
+*.pyc
+package
+*/build
+xcuserdata
+.idea

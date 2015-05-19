@@ -1,0 +1,15 @@
+{
+    "name": "Test Map",
+    "tileset" : {
+    	"source" : "tileset.png"
+    },
+    "tileWidth": 24,
+    "tileHeight": 16,
+    "layers": [
+        {
+            "map": "layer_Ground.png",
+            "offsetX": 0,
+            "offsetY": 0
+        }
+    ]
+}
