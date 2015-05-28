@@ -3,7 +3,7 @@
 
 class Texture2D;
 
-NS_CC_BEGIN
+USING_NS_CC;
 
 class GPUTileMapLayer : NS_CC::Sprite
 {
@@ -15,7 +15,14 @@ public:
 
 	virtual void setTexture(const std::string &filename );
 	virtual void setTexture(NS_CC::Texture2D *texture);*/
+
+	Vec2 getInverseTextureSize();
+
+	Vec2 getTextureSize();
+
+private:
+	virtual bool initWithFile(const std::string &filename) override;
+	Vec2 _inverseTextureSize;
 };
 
-NS_CC_END
 #endif //__GPUTileMapLayer_H_

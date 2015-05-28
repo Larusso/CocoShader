@@ -23,12 +23,18 @@ CC_CONSTRUCTOR_ACCESS:
 	virtual bool initWithFile(const std::string& filename);
 
 protected:
-	virtual void customDraw(const Mat4 &transform, uint32_t flags);
+	//virtual void customDraw(const Mat4 &transform, uint32_t flags);
 	NS_CC::Texture2D*			_tileset;
 	NS_CC::Vector<Sprite *> _layers;
 	CustomCommand _customCommand;
 	QuadCommand _quadCommand;
 	V3F_C4B_T2F_Quad _quad;
+public:
+	virtual void setContentSize(cocos2d::Size const &contentSize) override;
+
+	void updateQuad();
+	Vec2 _inverseSpriteTextureSize;
+	Vec2 _tileSize;
 };
 
 #endif //__TileMap_H_

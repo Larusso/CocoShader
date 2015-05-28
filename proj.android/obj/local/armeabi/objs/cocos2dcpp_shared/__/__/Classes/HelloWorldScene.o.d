@@ -458,7 +458,9 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/HelloWorldScene.o: \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../ui/UIDeprecated.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../ui/UIScale9Sprite.h \
  /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../ui/UIEditBox/UIEditBox.h \
- /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../ui/UILayoutComponent.h
+ /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../ui/UILayoutComponent.h \
+ jni/../../Classes/GPUTileMap/GPUTileMap.h \
+ jni/../../Classes/GPUTileMap/GPUTileMapLayer.h
 
 jni/../../Classes/HelloWorldScene.h:
 
@@ -1377,3 +1379,7 @@ jni/../../Classes/HelloWorldScene.h:
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../ui/UIEditBox/UIEditBox.h:
 
 /Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/3d/prebuilt-mk/../../ui/UILayoutComponent.h:
+
+jni/../../Classes/GPUTileMap/GPUTileMap.h:
+
+jni/../../Classes/GPUTileMap/GPUTileMapLayer.h:

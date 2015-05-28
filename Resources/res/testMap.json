@@ -7,7 +7,7 @@
     "tileHeight": 16,
     "layers": [
         {
-            "map": "layer_Ground.png",
+            "map": "layer_Ground2.png",
             "offsetX": 0,
             "offsetY": 0
         }

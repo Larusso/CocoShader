@@ -20,12 +20,22 @@ def generate_image(layer):
 	for index, value in enumerate(layer.data):
 		px = index % layer.width
 		py = index // layer.width
-		pix[px,py] = value | (0xFF << 24)
+		color_value = ( 0xFF << 24 | int(value))
+
+		a = ( color_value >> 24 ) & 0xFF
+		r = ( color_value >> 16 ) & 0xFF
+		g = ( color_value >> 8 ) & 0xFF
+		b = ( color_value >> 0 ) & 0xFF
+
+
+		pix[px,py] = (r,g,b,a)
+		#print(pix[px,py])
+		#pix[px,py] = value | (0xFF << 24)
 	return layer_image
 
 def map2bitmap(tilemap_path, file_type):
 	map = TMXMap(open(tilemap_path,'r').read(),file_type)
-
+	print(map)
 	for layer in map.layers:
 		image = generate_image(layer)
 		image.save("{}/layer_{}.png".format(os.path.dirname(tilemap_path), layer.name))

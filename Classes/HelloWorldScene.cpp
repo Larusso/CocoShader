@@ -1,6 +1,5 @@
 #include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
 #include "GPUTileMap.h"
 
 USING_NS_CC;
@@ -31,31 +30,17 @@ bool HelloWorld::init()
     {
         return false;
     }
-    
-    //auto rootNode = CSLoader::createNode("MainScene.csb");
+
+	FileUtils::getInstance()->addSearchPath("res/shader", false);
+
+	auto director = Director::getInstance();
+
+    //auto background = CSLoader::createNode("MainScene.csb");
+	//addChild(background);
 	auto rootNode = GPUTileMap::create("testMap.json");
-	rootNode->setContentSize(this->getContentSize());
+	rootNode->setContentSize(director->getWinSize());
+	rootNode->setPosition(0, 1);
     addChild(rootNode);
     
-    //Sprite* ground = rootNode->getChildByName<Sprite *>("map_ground");
-    //setCustomShader(ground);
-
-	//ground->runAction(MoveBy::create(10.0, Vec2(20,20)));
     return true;
-}
-
-void HelloWorld::setCustomShader(Sprite *node)
-{
-    printf("add shader");
-    
-    //create my own program
-    auto program = new GLProgram;
-    program->initWithFilenames("map.vs", "map.fs");
-    program->link();
-    //set uniform locations
-    program->updateUniforms();
-    
-    
-    //    this->setGLProgram(GLProgramCache::getInstance()->getGLProgram(GLProgram::SHADER_NAME_POSITION_COLOR));
-    node->setGLProgram(program);
 }
