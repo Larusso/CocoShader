@@ -1,28 +1,43 @@
 #ifndef __GPUTileMapLayer_H_
 #define __GPUTileMapLayer_H_
 
+#include "GPUTileMapLayerInfo.h"
+
 class Texture2D;
 
 USING_NS_CC;
 
-class GPUTileMapLayer : NS_CC::Sprite
+class GPUTileMapLayer : public Node
 {
+
 public:
+	static GPUTileMapLayer *create(GPUTileMapLayerInfo *layerInfo);
 
-	static GPUTileMapLayer* create(const std::string& filename);
-	/*static GPUTileMapLayer* create();
-	static GPUTileMapLayer* createWithTexture(NS_CC::Texture2D *texture);
+	Vec2 getMapInverseTextureSize();
+	Vec2 getMapSize();
+	virtual void draw(Renderer *renderer, Mat4 const &transform, uint32_t flags) override;
+	virtual void setContentSize(cocos2d::Size const &contentSize) override;
+	virtual void setPosition(const Vec2 &position) override;
+	void updateQuad();
 
-	virtual void setTexture(const std::string &filename );
-	virtual void setTexture(NS_CC::Texture2D *texture);*/
+CC_CONSTRUCTOR_ACCESS:
 
-	Vec2 getInverseTextureSize();
+	GPUTileMapLayer();
+	virtual ~GPUTileMapLayer();
 
-	Vec2 getTextureSize();
+	virtual bool initWithLayerInfo(GPUTileMapLayerInfo *layerInfo);
 
-private:
-	virtual bool initWithFile(const std::string &filename) override;
+protected:
 	Vec2 _inverseTextureSize;
+	Vec2 _inverseSpriteTextureSize;
+	Vec2 _tileSize;
+	Vec2 _offset;
+	cocos2d::Texture2D *_map;
+	cocos2d::Texture2D *_tileset;
+	V3F_C4B_T2F_Quad _quad;
+	QuadCommand _quadCommand;
+
+	void updateShaderState();
 };
 
 #endif //__GPUTileMapLayer_H_

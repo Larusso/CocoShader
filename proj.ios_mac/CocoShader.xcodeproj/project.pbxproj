@@ -59,8 +59,10 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		FD24744E69E7D7631BBE05EF /* GPUTileMapLayerInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD2479CE647929C0ECB2EA26 /* GPUTileMapLayerInfo.cpp */; };
 		FD2475EF225937741B37E947 /* GPUTileMapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD247C4036635E10ADBE964B /* GPUTileMapLayer.cpp */; };
 		FD24785E628A9314160DAFF4 /* GPUTileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD2479DA3DF73C3F7301A6EB /* GPUTileMap.cpp */; };
+		FD247941A89A602080E6038D /* GPUTileMapLayerInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD2479CE647929C0ECB2EA26 /* GPUTileMapLayerInfo.cpp */; };
 		FD247A8D15C0ADA4537F953C /* GPUTileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD2479DA3DF73C3F7301A6EB /* GPUTileMap.cpp */; };
 		FD247E1D0F630C69CF1BE3F8 /* GPUTileMapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD247C4036635E10ADBE964B /* GPUTileMapLayer.cpp */; };
 /* End PBXBuildFile section */
@@ -155,6 +157,8 @@
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		FA144D09A52357282113E0F8 /* res */ = {isa = PBXFileReference; lastKnownFileType = "?"; name = res; path = ../Resources/res; sourceTree = "<group>"; };
 		FD2474BFF0B0CD30D91E2730 /* GPUTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUTileMap.h; sourceTree = "<group>"; };
+		FD24797CC367F4DCBA238B8C /* GPUTileMapLayerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUTileMapLayerInfo.h; sourceTree = "<group>"; };
+		FD2479CE647929C0ECB2EA26 /* GPUTileMapLayerInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GPUTileMapLayerInfo.cpp; sourceTree = "<group>"; };
 		FD2479DA3DF73C3F7301A6EB /* GPUTileMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GPUTileMap.cpp; sourceTree = "<group>"; };
 		FD247C4036635E10ADBE964B /* GPUTileMapLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GPUTileMapLayer.cpp; sourceTree = "<group>"; };
 		FD247FDD943042EF445DB02B /* GPUTileMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUTileMapLayer.h; sourceTree = "<group>"; };
@@ -369,6 +373,8 @@
 				FD2479DA3DF73C3F7301A6EB /* GPUTileMap.cpp */,
 				FD247C4036635E10ADBE964B /* GPUTileMapLayer.cpp */,
 				FD247FDD943042EF445DB02B /* GPUTileMapLayer.h */,
+				FD2479CE647929C0ECB2EA26 /* GPUTileMapLayerInfo.cpp */,
+				FD24797CC367F4DCBA238B8C /* GPUTileMapLayerInfo.h */,
 			);
 			path = GPUTileMap;
 			sourceTree = "<group>";
@@ -518,6 +524,7 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				FD24785E628A9314160DAFF4 /* GPUTileMap.cpp in Sources */,
 				FD2475EF225937741B37E947 /* GPUTileMapLayer.cpp in Sources */,
+				FD247941A89A602080E6038D /* GPUTileMapLayerInfo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +537,7 @@
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				FD247A8D15C0ADA4537F953C /* GPUTileMap.cpp in Sources */,
 				FD247E1D0F630C69CF1BE3F8 /* GPUTileMapLayer.cpp in Sources */,
+				FD24744E69E7D7631BBE05EF /* GPUTileMapLayerInfo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

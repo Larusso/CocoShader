@@ -7,9 +7,24 @@
     "tileHeight": 16,
     "layers": [
         {
-            "map": "layer_Ground2.png",
+            "map": "layer_bg.png",
             "offsetX": 0,
             "offsetY": 0
-        }
+        },
+         {
+            "map": "layer_plants.png",
+            "offsetX": 0,
+            "offsetY": 0
+        },
+         {
+            "map": "layer_overlay.png",
+            "offsetX": 0,
+            "offsetY": 0
+        },
+         {
+            "map": "layer_roofs.png",
+            "offsetX": 0,
+            "offsetY": 0
+        }       
     ]
 }

@@ -13,8 +13,6 @@ class GPUTileMap : public Node
 public:
 	static GPUTileMap* create(const std::string& filename);
 
-	virtual void draw(Renderer *renderer, Mat4 const &transform, uint32_t flags) override;
-
 CC_CONSTRUCTOR_ACCESS:
 
 	GPUTileMap();
@@ -32,7 +30,6 @@ protected:
 public:
 	virtual void setContentSize(cocos2d::Size const &contentSize) override;
 
-	void updateQuad();
 	Vec2 _inverseSpriteTextureSize;
 	Vec2 _tileSize;
 };
