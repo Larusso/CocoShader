@@ -20,25 +20,29 @@ GPUTileMap *GPUTileMap::create(const std::string &filename)
 
 void GPUTileMap::draw(Renderer *renderer, const Mat4 &transform, uint32_t flags)
 {
-	GLProgramState *state = getGLProgramState();
+	int count = 0;
+	for (auto item : _layers)
+	{
+		item->quadCommand.init(_globalZOrder + count, _tileset->getName(), item, BlendFunc::ALPHA_PREMULTIPLIED, &_quad, 1, transform, flags);
+		renderer->addCommand(&item->quadCommand);
+		count++;
+	}
+}
 
+void GPUTileMap::updateGLProgramStateForLayer(GLProgramState *state, cocos2d::Texture2D *layer)
+{
 	state->setUniformVec2("u_inverseSpriteTextureSize", _inverseSpriteTextureSize);
 	state->setUniformVec2("u_tileSize", _tileSize);
 	state->setUniformVec2("u_inverseTileSize", Vec2(1 / _tileSize.x,1 / _tileSize.y));
-	state->setUniformVec2("u_viewportSize", this->getContentSize());
+	state->setUniformVec2("u_viewportSize", getContentSize());
 	state->setUniformVec2("u_viewOffset", Vec2(0,0));
+
 	state->setUniformTexture("u_sprites", _tileset);
 	state->setUniformVec2("u_spriteTextureSize", _tileset->getContentSize());
 
-	for (auto item : _layers)
-	{
-		GPUTileMapLayer *layer = (GPUTileMapLayer *)item;
-		state->setUniformTexture("u_tiles", item->getTexture());
-		state->setUniformVec2("u_inverseTileTextureSize", layer->getInverseTextureSize());
+	state->setUniformTexture("u_tiles", layer);
+	state->setUniformVec2("u_inverseTileTextureSize", Vec2(1 / layer->getContentSize().width,1 / layer->getContentSize().height));
 
-		_quadCommand.init(_globalZOrder, _tileset->getName(), getGLProgramState(), BlendFunc::ALPHA_PREMULTIPLIED, &_quad, 1, transform, flags);
-		renderer->addCommand(&_quadCommand);
-	}
 }
 
 bool GPUTileMap::initWithFile(std::string const &filename)
@@ -57,6 +61,15 @@ bool GPUTileMap::initWithFile(std::string const &filename)
 
 	if (document.IsObject() && document.HasMember("name"))
 	{
+		auto program = GLProgramCache::getInstance()->getGLProgram("GPUTileMapShader");
+		if (!program)
+		{
+			program = GLProgram::createWithFilenames("map.vs", "map.fs");
+			program->link();
+			//program->updateUniforms();
+			GLProgramCache::getInstance()->addGLProgram(program, "GPUTileMapShader");
+		}
+
 		CCLOG("%s\n", document["name"].GetString());
 		_tileSize = Vec2(document["tileWidth"].GetInt(),document["tileHeight"].GetInt());
 
@@ -66,30 +79,21 @@ bool GPUTileMap::initWithFile(std::string const &filename)
 		_tileset->setAliasTexParameters();
 		_inverseSpriteTextureSize = Vec2(1 / _tileset->getContentSize().width, 1/_tileset->getContentSize().height);
 		const rapidjson::Value& layers = document["layers"];
+
 		for (SizeType i = 0; i < layers.Size(); i++)
 		{
 			const rapidjson::Value& layer = layers[i];
 			const char *layerMap = layer["map"].GetString();
-			GPUTileMapLayer *tileMapLayer = GPUTileMapLayer::create(layerMap);
-			//this->addChild((Node *)tileMapLayer);
+			auto map = Director::getInstance()->getTextureCache()->addImage(layerMap);
+			map->setAliasTexParameters();
+			auto state = GPUTileMapLayer::create(program);
+			updateGLProgramStateForLayer((GLProgramState *)state, map);
 
-			_layers.insert(_layers.size(), (Sprite *)tileMapLayer);
+			_layers.insert(_layers.size(), state);
 
 		}
 
 		status = true;
-
-		auto program = GLProgramCache::getInstance()->getGLProgram("GPUTileMapShader");
-		if (!program)
-		{
-			program = GLProgram::createWithFilenames("map.vs", "map.fs");
-			program->link();
-			program->updateUniforms();
-			GLProgramCache::getInstance()->addGLProgram(program, "GPUTileMapShader");
-		}
-
-		//this->setGLProgram(program);
-		setGLProgramState(GLProgramState::getOrCreateWithGLProgram(program));
 
 		updateQuad();
 	}
@@ -127,9 +131,6 @@ void GPUTileMap::updateQuad()
 	_quad.br.colors = color4;
 	_quad.tl.colors = color4;
 	_quad.tr.colors = color4;
-
-	auto state = this->getGLProgramState();
-	printf(state->getGLProgram()->getProgramLog().data());
 }
 
 
@@ -137,6 +138,7 @@ void GPUTileMap::setContentSize(const NS_CC::Size &contentSize)
 {
 	Node::setContentSize(contentSize);
 	updateQuad();
+	updateLayerContentSize();
 }
 
 GPUTileMap::GPUTileMap(void)
@@ -149,4 +151,12 @@ GPUTileMap::GPUTileMap(void)
 GPUTileMap::~GPUTileMap()
 {
 	CC_SAFE_RELEASE(_tileset);
+}
+
+void GPUTileMap::updateLayerContentSize()
+{
+	for (auto item : _layers)
+	{
+		item->setUniformVec2("u_viewportSize", getContentSize());
+	}
 }

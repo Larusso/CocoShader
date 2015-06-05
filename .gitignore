@@ -3,4 +3,5 @@ bin
 package
 */build
 xcuserdata
-.ideaproj.android/obj
+.idea
+proj.android/obj

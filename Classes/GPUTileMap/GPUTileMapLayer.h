@@ -5,24 +5,13 @@ class Texture2D;
 
 USING_NS_CC;
 
-class GPUTileMapLayer : NS_CC::Sprite
+class GPUTileMapLayer : public NS_CC::GLProgramState
 {
 public:
 
-	static GPUTileMapLayer* create(const std::string& filename);
-	/*static GPUTileMapLayer* create();
-	static GPUTileMapLayer* createWithTexture(NS_CC::Texture2D *texture);
+	static GPUTileMapLayer *create(GLProgram *glprogram);
 
-	virtual void setTexture(const std::string &filename );
-	virtual void setTexture(NS_CC::Texture2D *texture);*/
-
-	Vec2 getInverseTextureSize();
-
-	Vec2 getTextureSize();
-
-private:
-	virtual bool initWithFile(const std::string &filename) override;
-	Vec2 _inverseTextureSize;
+	QuadCommand quadCommand;
 };
 
 #endif //__GPUTileMapLayer_H_

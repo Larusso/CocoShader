@@ -25,8 +25,7 @@ CC_CONSTRUCTOR_ACCESS:
 protected:
 	//virtual void customDraw(const Mat4 &transform, uint32_t flags);
 	NS_CC::Texture2D*			_tileset;
-	NS_CC::Vector<Sprite *> _layers;
-	CustomCommand _customCommand;
+	NS_CC::Vector<GPUTileMapLayer *> _layers;
 	QuadCommand _quadCommand;
 	V3F_C4B_T2F_Quad _quad;
 public:
@@ -35,6 +34,10 @@ public:
 	void updateQuad();
 	Vec2 _inverseSpriteTextureSize;
 	Vec2 _tileSize;
+
+	void updateGLProgramStateForLayer(GLProgramState *state, cocos2d::Texture2D *layer);
+
+	void updateLayerContentSize();
 };
 
 #endif //__TileMap_H_
