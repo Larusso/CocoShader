@@ -55,15 +55,25 @@
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
 		C32F9AD31B0F4A1F009E7AB7 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C32F9ACE1B0F49FA009E7AB7 /* libcocos2d Mac.a */; };
 		C32F9AD61B0F6428009E7AB7 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C32F9AD01B0F49FA009E7AB7 /* libcocos2d iOS.a */; };
+		C3B3479D1B244BD3000A7EC3 /* gpuTileMapShader.vert in Headers */ = {isa = PBXBuildFile; fileRef = FD2475C47FBA6F35A000AEB1 /* gpuTileMapShader.vert */; };
+		C3B3479E1B244BD3000A7EC3 /* gpuTileMapShader.frag in Headers */ = {isa = PBXBuildFile; fileRef = FD247847A222AC349D1C3D98 /* gpuTileMapShader.frag */; };
+		C3B347A11B244E24000A7EC3 /* gpuTileMapShader.vert in Headers */ = {isa = PBXBuildFile; fileRef = FD2475C47FBA6F35A000AEB1 /* gpuTileMapShader.vert */; };
+		C3B347A21B244E24000A7EC3 /* gpuTileMapShader.frag in Headers */ = {isa = PBXBuildFile; fileRef = FD247847A222AC349D1C3D98 /* gpuTileMapShader.frag */; };
+		C3B347A31B244E24000A7EC3 /* gpuTileMapShaders.h in Headers */ = {isa = PBXBuildFile; fileRef = FD2471043DE430EB7282F6B3 /* gpuTileMapShaders.h */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		FD24703A35F4D0F00A51A21B /* gpuTileMapShaders.h in Headers */ = {isa = PBXBuildFile; fileRef = FD2471043DE430EB7282F6B3 /* gpuTileMapShaders.h */; };
+		FD2470906E626962F5B014AE /* gpuTileMapShaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD24744F8235BC877B83D1DF /* gpuTileMapShaders.cpp */; };
 		FD24744E69E7D7631BBE05EF /* GPUTileMapLayerInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD2479CE647929C0ECB2EA26 /* GPUTileMapLayerInfo.cpp */; };
+		FD2475904747E566E97576D2 /* gpuTileMapShaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD24744F8235BC877B83D1DF /* gpuTileMapShaders.cpp */; };
 		FD2475EF225937741B37E947 /* GPUTileMapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD247C4036635E10ADBE964B /* GPUTileMapLayer.cpp */; };
+		FD24785BD47D62C82C261ED9 /* gpuTileMapShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = FD2475C47FBA6F35A000AEB1 /* gpuTileMapShader.vert */; };
 		FD24785E628A9314160DAFF4 /* GPUTileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD2479DA3DF73C3F7301A6EB /* GPUTileMap.cpp */; };
 		FD247941A89A602080E6038D /* GPUTileMapLayerInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD2479CE647929C0ECB2EA26 /* GPUTileMapLayerInfo.cpp */; };
 		FD247A8D15C0ADA4537F953C /* GPUTileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD2479DA3DF73C3F7301A6EB /* GPUTileMap.cpp */; };
+		FD247D2CB0609B1BCEA670FD /* gpuTileMapShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = FD247847A222AC349D1C3D98 /* gpuTileMapShader.frag */; };
 		FD247E1D0F630C69CF1BE3F8 /* GPUTileMapLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD247C4036635E10ADBE964B /* GPUTileMapLayer.cpp */; };
 /* End PBXBuildFile section */
 
@@ -156,7 +166,11 @@
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		FA144D09A52357282113E0F8 /* res */ = {isa = PBXFileReference; lastKnownFileType = "?"; name = res; path = ../Resources/res; sourceTree = "<group>"; };
+		FD2471043DE430EB7282F6B3 /* gpuTileMapShaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gpuTileMapShaders.h; sourceTree = "<group>"; };
+		FD24744F8235BC877B83D1DF /* gpuTileMapShaders.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gpuTileMapShaders.cpp; sourceTree = "<group>"; };
 		FD2474BFF0B0CD30D91E2730 /* GPUTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUTileMap.h; sourceTree = "<group>"; };
+		FD2475C47FBA6F35A000AEB1 /* gpuTileMapShader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = gpuTileMapShader.vert; sourceTree = "<group>"; };
+		FD247847A222AC349D1C3D98 /* gpuTileMapShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = gpuTileMapShader.frag; sourceTree = "<group>"; };
 		FD24797CC367F4DCBA238B8C /* GPUTileMapLayerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUTileMapLayerInfo.h; sourceTree = "<group>"; };
 		FD2479CE647929C0ECB2EA26 /* GPUTileMapLayerInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GPUTileMapLayerInfo.cpp; sourceTree = "<group>"; };
 		FD2479DA3DF73C3F7301A6EB /* GPUTileMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GPUTileMap.cpp; sourceTree = "<group>"; };
@@ -375,11 +389,38 @@
 				FD247FDD943042EF445DB02B /* GPUTileMapLayer.h */,
 				FD2479CE647929C0ECB2EA26 /* GPUTileMapLayerInfo.cpp */,
 				FD24797CC367F4DCBA238B8C /* GPUTileMapLayerInfo.h */,
+				FD2475C47FBA6F35A000AEB1 /* gpuTileMapShader.vert */,
+				FD247847A222AC349D1C3D98 /* gpuTileMapShader.frag */,
+				FD24744F8235BC877B83D1DF /* gpuTileMapShaders.cpp */,
+				FD2471043DE430EB7282F6B3 /* gpuTileMapShaders.h */,
 			);
 			path = GPUTileMap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C3B3479C1B244BC7000A7EC3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3B3479D1B244BD3000A7EC3 /* gpuTileMapShader.vert in Headers */,
+				C3B3479E1B244BD3000A7EC3 /* gpuTileMapShader.frag in Headers */,
+				FD24703A35F4D0F00A51A21B /* gpuTileMapShaders.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3B347A01B244E16000A7EC3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3B347A11B244E24000A7EC3 /* gpuTileMapShader.vert in Headers */,
+				C3B347A21B244E24000A7EC3 /* gpuTileMapShader.frag in Headers */,
+				C3B347A31B244E24000A7EC3 /* gpuTileMapShaders.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		1D6058900D05DD3D006BFB54 /* CocoShader iOS */ = {
@@ -389,6 +430,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				C3B347A01B244E16000A7EC3 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -407,6 +449,7 @@
 				5087E74817EB910900C73F5D /* Resources */,
 				5087E75617EB910900C73F5D /* Sources */,
 				5087E75C17EB910900C73F5D /* Frameworks */,
+				C3B3479C1B244BC7000A7EC3 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -498,6 +541,8 @@
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 				41E34A81ACA2320B6C76C445 /* res in Resources */,
+				FD24785BD47D62C82C261ED9 /* gpuTileMapShader.vert in Resources */,
+				FD247D2CB0609B1BCEA670FD /* gpuTileMapShader.frag in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +570,7 @@
 				FD24785E628A9314160DAFF4 /* GPUTileMap.cpp in Sources */,
 				FD2475EF225937741B37E947 /* GPUTileMapLayer.cpp in Sources */,
 				FD247941A89A602080E6038D /* GPUTileMapLayerInfo.cpp in Sources */,
+				FD2470906E626962F5B014AE /* gpuTileMapShaders.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +584,7 @@
 				FD247A8D15C0ADA4537F953C /* GPUTileMap.cpp in Sources */,
 				FD247E1D0F630C69CF1BE3F8 /* GPUTileMapLayer.cpp in Sources */,
 				FD24744E69E7D7631BBE05EF /* GPUTileMapLayerInfo.cpp in Sources */,
+				FD2475904747E566E97576D2 /* gpuTileMapShaders.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

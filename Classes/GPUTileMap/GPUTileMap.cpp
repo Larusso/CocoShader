@@ -1,6 +1,7 @@
 #include "GPUTileMap.h"
 #include "json/rapidjson.h"
 #include "json/document.h"
+#include "gpuTileMapShaders.h"
 
 USING_NS_CC;
 using namespace rapidjson;
@@ -86,7 +87,7 @@ bool GPUTileMap::initWithFile(std::string const &filename)
 			auto program = GLProgramCache::getInstance()->getGLProgram("GPUTileMapShader");
 			if (!program)
 			{
-				program = GLProgram::createWithFilenames("map.vs", "map.fs");
+				program = GLProgram::createWithByteArrays(gpuTileMap_vert, gpuTileMap_frag);
 				program->link();
 				//program->updateUniforms();
 				GLProgramCache::getInstance()->addGLProgram(program, "GPUTileMapShader");
