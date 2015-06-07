@@ -1,5 +1,10 @@
 #ifndef __TileMap_H_
 #define __TileMap_H_
+
+#ifndef GPU_TILEMAP_DEBUG_DRAW
+#define GPU_TILEMAP_DEBUG_DRAW 1
+#endif //GPU_TILEMAP_DEBUG_DRAW
+
 #include <vector>
 #include "GPUTileMapLayer.h"
 
@@ -28,14 +33,19 @@ protected:
 	V3F_C4B_T2F_Quad _quad;
 public:
 	virtual void setContentSize(cocos2d::Size const &contentSize) override;
+	virtual void setMapOffset(cocos2d::Point const &mapPosition);
 
 	void updateQuad();
 	Vec2 _inverseSpriteTextureSize;
 	Vec2 _tileSize;
+	int _insideBounds;
 
 	void updateGLProgramStateForLayer(GLProgramState *state, cocos2d::Texture2D *layer);
 
 	void updateLayerContentSize();
+#if GPU_TILEMAP_DEBUG_DRAW
+	DrawNode *_debugDrawNode;
+#endif //GPU_TILEMAP_DEBUG_DRAW
 };
 
 #endif //__TileMap_H_

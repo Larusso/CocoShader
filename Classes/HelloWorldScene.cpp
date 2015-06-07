@@ -38,8 +38,11 @@ bool HelloWorld::init()
     //auto background = CSLoader::createNode("MainScene.csb");
 	//addChild(background);
 	auto rootNode = GPUTileMap::create("testMap.json");
-	rootNode->setContentSize(director->getWinSize());
-	rootNode->setPosition(0, 1);
+	auto winsize = director->getWinSize();
+	//rootNode->setContentSize(director->getWinSize());
+	rootNode->setContentSize(Size(200,300));
+	//rootNode->setMapOffset(Vec2(20,100));
+	rootNode->setPosition(winsize.width / 4, winsize.height / 2);
     addChild(rootNode);
     
     return true;
