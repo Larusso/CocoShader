@@ -46,6 +46,7 @@ void main()
 	vec2 spriteOffset = vec2( floor(mod(tileIndex , spriteTextureCords.x)), floor(tileIndex / spriteTextureCords.x)) * u_tileSize;
 
 	vec2 spriteCoord = mod(v_pixelCoord, u_tileSize);
-	gl_FragColor = texture2D(u_sprites, (spriteOffset + spriteCoord) * u_inverseSpriteTextureSize);
+    gl_FragColor = texture2D(u_sprites, (spriteOffset + spriteCoord) * u_inverseSpriteTextureSize);
+    //gl_FragColor = tile;
 }
 );

@@ -42,8 +42,10 @@ bool HelloWorld::init()
 	//rootNode->setContentSize(director->getWinSize());
 	rootNode->setContentSize(Size(200,300));
 	//rootNode->setMapOffset(Vec2(20,100));
-	rootNode->setPosition(winsize.width / 4, winsize.height / 2);
+	//rootNode->setPosition((winsize.width - 200)/2, (winsize.height - 300) / 2);
     addChild(rootNode);
-    
+	auto moveAction = MoveBy::create(10.0, winsize / 4);
+	rootNode->runAction(RepeatForever::create(Sequence::createWithTwoActions(moveAction, moveAction->reverse())));
+
     return true;
 }

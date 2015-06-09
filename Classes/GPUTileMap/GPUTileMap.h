@@ -46,6 +46,8 @@ public:
 #if GPU_TILEMAP_DEBUG_DRAW
 	DrawNode *_debugDrawNode;
 #endif //GPU_TILEMAP_DEBUG_DRAW
+
+	virtual void updateTransform() override;
 };
 
 #endif //__TileMap_H_

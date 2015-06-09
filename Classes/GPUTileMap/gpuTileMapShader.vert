@@ -33,6 +33,6 @@ void main()
 {
 	v_pixelCoord = (a_texCoord * u_viewportSize) + u_viewOffset;
 	v_texCoord = v_pixelCoord * u_inverseTileTextureSize * u_inverseTileSize;
-	gl_Position = CC_MVPMatrix * a_position;
+	gl_Position = CC_PMatrix * a_position;
 }
 );
